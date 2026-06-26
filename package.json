@@ -1,0 +1,19 @@
+{
+	"name": "kaigai-crypto-card-navi",
+	"version": "0.1.0",
+	"private": true,
+	"description": "海外在住日本人向け 仮想通貨カード/取引所 診断・比較ナビ（WordPress block theme + kcc-core plugin）",
+	"scripts": {
+		"wp:start": "wp-env start",
+		"wp:stop": "wp-env stop",
+		"wp:clean": "wp-env clean all",
+		"wp:cli": "wp-env run cli wp",
+		"seed": "bash scripts/seed.sh",
+		"build": "wp-scripts build --webpack-src-dir=wp-content/plugins/kcc-core/blocks --output-path=wp-content/plugins/kcc-core/blocks",
+		"start": "wp-scripts start --webpack-src-dir=wp-content/plugins/kcc-core/blocks --output-path=wp-content/plugins/kcc-core/blocks"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^10.0.0",
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

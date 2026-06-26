@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kcc/card-comparison-table",
+	"title": "カード比較表",
+	"category": "widgets",
+	"icon": "editor-table",
+	"description": "service（カード）をソート・フィルタできる比較表。各行に CTA と最終確認日を表示。",
+	"keywords": ["card", "comparison", "crypto", "比較"],
+	"render": "file:./render.php",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true
+	},
+	"style": "file:./style.css"
+}

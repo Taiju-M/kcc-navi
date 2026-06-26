@@ -1,0 +1,46 @@
+.kcc-spec {
+	margin: 1.5rem 0;
+}
+
+.kcc-spec__table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.kcc-spec__table th,
+.kcc-spec__table td {
+	padding: 0.55rem 0.75rem;
+	border-bottom: 1px solid #e3e3e3;
+	text-align: left;
+	vertical-align: top;
+}
+
+.kcc-spec__table th {
+	width: 38%;
+	background: #f6f7f9;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.kcc-spec__cta-wrap {
+	margin: 1.25rem 0 0.5rem;
+}
+
+.kcc-spec__cta {
+	display: inline-block;
+	padding: 0.7rem 1.5rem;
+	background: #f59e0b;
+	color: #1a1a1a;
+	font-weight: 700;
+	border-radius: 8px;
+	text-decoration: none;
+}
+
+.kcc-spec__cta:hover {
+	background: #d97706;
+}
+
+.kcc-spec__verified {
+	font-size: 0.75rem;
+	color: #777;
+}

@@ -1,0 +1,15 @@
+{
+	"core": "WordPress/WordPress#6.5",
+	"phpVersion": "8.2",
+	"themes": ["./wp-content/themes/kcc-navi"],
+	"plugins": [
+		"./wp-content/plugins/kcc-core",
+		"https://downloads.wordpress.org/plugin/advanced-custom-fields.zip"
+	],
+	"config": {
+		"WP_DEBUG": true,
+		"WP_DEBUG_LOG": true,
+		"WP_DEBUG_DISPLAY": false,
+		"KCC_GA4_MEASUREMENT_ID": "G-TESTID0000"
+	}
+}

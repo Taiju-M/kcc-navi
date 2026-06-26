@@ -1,0 +1,28 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+	<!-- wp:pattern {"slug":"kcc-navi/hero"} /-->
+
+	<!-- wp:heading {"level":2} -->
+	<h2 class="wp-block-heading">海外在住日本人におすすめの仮想通貨カード比較</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:kcc/card-comparison-table /-->
+
+	<!-- wp:heading {"level":2} -->
+	<h2 class="wp-block-heading">最新の記事</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"queryId":1,"query":{"perPage":6,"postType":"post","order":"desc","orderBy":"date"}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+			<!-- wp:post-title {"isLink":true,"level":3} /-->
+			<!-- wp:post-excerpt /-->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

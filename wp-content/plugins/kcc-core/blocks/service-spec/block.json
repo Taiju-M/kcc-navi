@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kcc/service-spec",
+	"title": "サービススペック表",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "現在表示中の service の ACF スペックを整形表示する。",
+	"keywords": ["spec", "card", "service"],
+	"render": "file:./render.php",
+	"supports": {
+		"align": ["wide"],
+		"anchor": true
+	},
+	"style": "file:./style.css"
+}

@@ -1,0 +1,27 @@
+name: Publish Website
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  Publish-Website:
+    name: Publish-Website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage wp-content contents
+        run: |
+          mkdir -p __wpcom
+          cp -R wp-content/. __wpcom/
+
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wpcom
+          path: __wpcom
+          include-hidden-files: true
+          retention-days: 1

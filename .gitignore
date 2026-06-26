@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+vendor/
+
+# build output
+wp-content/plugins/kcc-core/blocks/**/build/
+*.map
+
+# wp-env / docker
+.wp-env.override.json
+
+# secrets / env
+.env
+.env.*
+!.env.example
+
+# ACF Pro plugin zip (licensed binary — do not commit)
+wp-content/plugins/advanced-custom-fields-pro/
+wp-content/plugins/*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# firecrawl scratch
+.firecrawl/
+
+# strategy / drafts — kept local & in private backup repo, never in public repo
+data/
+docs/

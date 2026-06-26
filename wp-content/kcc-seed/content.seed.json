@@ -1,0 +1,61 @@
+{
+	"_note": "Phase1 の記事・固定ページのシード。post_content はブロックマークアップ。本文は下書き相当のため公開前に加筆・事実確認すること。",
+	"posts": [
+		{
+			"type": "post",
+			"slug": "kaigai-crypto-card-osusume",
+			"title": "海外在住日本人におすすめの仮想通貨カード比較【最新】",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>海外在住の日本人が使いやすい仮想通貨（暗号資産）カードを、還元率・作成費・年会費・日本在住可否・物理カードの有無で比較します。条件で並び替え・絞り込みができます。掲載情報は各公式サイトを基に作成しており、最終確認日を併記しています。最新の条件は必ず公式でご確認ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">仮想通貨カード比較表</h2>\n<!-- /wp:heading -->\n\n<!-- wp:kcc/card-comparison-table /-->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">仮想通貨カードの選び方</h2>\n<!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">1. 自分の居住国で使えるか（日本在住可否・対応国）</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>カードによって発行可能な国・地域が異なります。海外在住の場合は、居住国で申し込み・本人確認（KYC）が通るかを最初に確認しましょう。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">2. 手数料（作成費・年会費・決済・ATM）</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>カード作成費・年会費が無料でも、海外決済手数料やATM出金手数料がかかる場合があります。日常的にどの場面で使うかに合わせて総コストを見比べてください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">3. 還元率と対応ウォレット・通貨</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>還元率は条件付き（有料プラン・ステーキング等）で最大値が提示されることが多いため、実際に自分が受け取れる還元率を確認しましょう。保有・入金したい通貨に対応しているかも重要です。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">よくある質問（FAQ）</h2>\n<!-- /wp:heading -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">海外在住でも日本の本人確認書類で作れますか？</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>カードにより異なります。居住国の住所・書類が必要なケースが多いため、各公式のKYC要件をご確認ください。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">税金はどうなりますか？</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>仮想通貨の決済・利用は居住国の税制に従います。本サイトは税務助言を行いません。詳細は居住国の税務専門家にご相談ください。</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"fontSize\":\"small\"} -->\n<p class=\"has-small-font-size\">当サイトは広告・アフィリエイトリンクを含みます。本記事は投資・税務の助言ではありません。</p>\n<!-- /wp:paragraph -->"
+		},
+		{
+			"type": "page",
+			"slug": "about",
+			"title": "運営者情報",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>「海外クリプトカード診断ナビ」は、海外在住の日本人に向けて、仮想通貨（暗号資産）カード・取引所・送金サービスを中立的な視点で比較・解説する専門情報サイトです。「海外に住む日本人が、住んでいる国で、どのサービスをどう選べばよいか」に答えることを目的としています。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">運営方針</h2>\n<!-- /wp:heading -->\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>海外在住者ファースト</strong>：日本居住者向けの一般論ではなく、海外在住・海外赴任・移住者の実情（居住国でのKYC可否、為替、税務、口座凍結リスク等）を起点に解説します。</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>公式一次情報の優先</strong>：掲載するスペックは各サービスの公式サイト・公式ヘルプを基に作成し、確認日を併記します。</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>評価と広告の分離</strong>：アフィリエイト報酬の有無が比較・評価・掲載順位に不当な影響を与えないよう努めます。</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>助言はしない</strong>：当サイトは投資勧誘・投資助言・税務助言を行いません。最終的なご判断はご自身の責任でお願いします。</li><!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">対象読者</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>海外に在住・赴任・移住している日本人、またはこれから海外で生活を始める方で、仮想通貨カードや関連サービスの利用を検討している方。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">編集体制とデータ検証</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>掲載情報の収集・検証・更新の手順は<a href=\"/editorial-policy/\">編集・データ検証ポリシー</a>に公開しています。情報は人による最終確認を経て掲載し、確認日を明示します。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">サイト概要</h2>\n<!-- /wp:heading -->\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item --><li>サイト名：海外クリプトカード診断ナビ</li><!-- /wp:list-item --><!-- wp:list-item --><li>編集・運営：海外クリプトカード診断ナビ編集部（<a href=\"/author-profile/\">プロフィール</a>）</li><!-- /wp:list-item --><!-- wp:list-item --><li>開設：2026年</li><!-- /wp:list-item --><!-- wp:list-item --><li>連絡先：<a href=\"/contact/\">お問い合わせページ</a></li><!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
+		},
+		{
+			"type": "page",
+			"slug": "disclaimer",
+			"title": "免責事項",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>当サイトに掲載する情報は、正確性・最新性を期すよう努めていますが、その内容の完全性・正確性・有用性を保証するものではありません。</p>\n<!-- /wp:paragraph -->\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item --><li>掲載する料金・還元率・対応国などの条件は、各サービスの判断で予告なく変更される場合があります。お申し込み前に必ず公式サイトをご確認ください。</li><!-- /wp:list-item --><!-- wp:list-item --><li>当サイトは投資勧誘・投資助言・税務助言を行うものではありません。仮想通貨は価格変動リスク等を伴います。ご利用は自己責任でお願いします。</li><!-- /wp:list-item --><!-- wp:list-item --><li>当サイトの情報を利用して生じたいかなる損害についても、当サイトは責任を負いかねます。</li><!-- /wp:list-item --></ul>\n<!-- /wp:list -->"
+		},
+		{
+			"type": "page",
+			"slug": "ad-policy",
+			"title": "広告・アフィリエイトポリシー（PR表記）",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>当サイトは、第三者が運営するアフィリエイトプログラムおよび広告を利用しており、リンク経由でのお申し込み等により当サイトが報酬を受け取る場合があります（PR）。</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>報酬の有無は、各サービスの評価・掲載順位に不当な影響を与えないよう努めています。比較・評価は公開情報に基づき中立的に行うことを基本方針とします。</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>消費者庁のステルスマーケティング規制（2023年10月施行）に基づき、広告・アフィリエイトを含むことを明示しています。</p>\n<!-- /wp:paragraph -->"
+		},
+		{
+			"type": "page",
+			"slug": "editorial-policy",
+			"title": "編集・データ検証ポリシー",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>当サイトは金融・暗号資産という、読者の判断に影響しうる分野（YMYL）を扱います。情報の正確性と透明性を最優先するため、掲載情報の収集・検証・更新の手順を公開します。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">情報源の優先順位</h2>\n<!-- /wp:heading -->\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item --><li>各サービスの<strong>公式サイト・公式ヘルプ・公式料金表</strong>（一次情報）</li><!-- /wp:list-item --><!-- wp:list-item --><li>カード発行体・提携金融機関の公式発表</li><!-- /wp:list-item --><!-- wp:list-item --><li>第三者の情報は補助的に参照し、数値は必ず公式で裏取りします</li><!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">検証フロー</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>情報収集の下調べに自動化（AIによる公式サイトの巡回・差分検出）を用いる場合がありますが、<strong>掲載・更新の最終確認は必ず人が行います</strong>（ヒューマン・イン・ザ・ループ）。手数料・還元率・対応国などの主要数値は、公開前に公式ページで人が確認したうえで掲載します。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">確認ステータスと最終確認日</h2>\n<!-- /wp:heading -->\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>確認済</strong>：公式情報を人が確認し、確認日を併記したもの。</li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>確認中</strong>：収集済みだが人による最終確認が完了していないもの。この旨を明示します。</li><!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n<!-- wp:paragraph -->\n<p>料金・条件は各サービスの判断で予告なく変更される場合があります。確認日以降に変更されている可能性があるため、お申し込み前に必ず公式サイトで最新情報をご確認ください。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">評価と広告の分離</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>当サイトはアフィリエイト広告を掲載していますが、報酬の有無が比較・評価・掲載順位に不当な影響を与えないよう努めています。評価基準は公開情報に基づき、可能な範囲でその根拠を明示します。詳細は<a href=\"/ad-policy/\">広告・アフィリエイトポリシー</a>をご覧ください。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">誤りの報告・訂正</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>掲載情報に誤りや古い箇所を見つけられた場合は、<a href=\"/contact/\">お問い合わせページ</a>よりご連絡ください。確認のうえ速やかに訂正します。訂正の履歴は必要に応じて記事内に明記します。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">免責</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>当サイトは投資勧誘・投資助言・税務助言を行いません。掲載情報の利用により生じた損害について責任を負いかねます。詳細は<a href=\"/disclaimer/\">免責事項</a>をご確認ください。</p>\n<!-- /wp:paragraph -->"
+		},
+		{
+			"type": "page",
+			"slug": "privacy",
+			"title": "プライバシーポリシー",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>当サイトは、アクセス解析のためにGoogle Analytics等のツールを利用し、Cookieを通じて閲覧情報を収集する場合があります。これらの情報には個人を特定する情報は含まれません。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">Cookieの無効化</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>ブラウザ設定によりCookieを無効化できます。無効化した場合、一部機能が利用できなくなる可能性があります。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">お問い合わせ</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>本ポリシーに関するお問い合わせは<a href=\"/contact/\">お問い合わせページ</a>よりご連絡ください。</p>\n<!-- /wp:paragraph -->"
+		},
+		{
+			"type": "page",
+			"slug": "author-profile",
+			"title": "執筆者・編集部プロフィール",
+			"status": "publish",
+			"content": "<!-- wp:heading {\"level\":2} -->\n<h2 class=\"wp-block-heading\">海外クリプトカード診断ナビ編集部</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>当サイトの記事は「海外クリプトカード診断ナビ編集部」が執筆・編集しています。</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>編集部は、海外FX会社のマーケティング・営業に携わり、複数の国を行き来しながら活動してきたメンバーで構成されています。金融サービスの実務経験と、海外で生活・移動する中で得た決済・口座・本人確認（KYC）まわりの実体験をもとに、海外在住の日本人が直面する具体的な課題に即して情報をまとめています。</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">得意領域</h3>\n<!-- /wp:heading -->\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item --><li>海外在住・複数国での決済／口座／KYC の実情</li><!-- /wp:list-item --><!-- wp:list-item --><li>金融サービスのマーケティング・比較設計</li><!-- /wp:list-item --><!-- wp:list-item --><li>仮想通貨カード・取引所・送金サービスの比較・解説</li><!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">編集・検証の方針</h3>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p>掲載情報は公式の一次情報を基に作成し、人による最終確認を経て公開しています。手順の詳細は<a href=\"/editorial-policy/\">編集・データ検証ポリシー</a>をご覧ください。なお、当サイトは投資・税務の助言を行いません。</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph {\"fontSize\":\"small\",\"textColor\":\"muted\"} -->\n<p class=\"has-muted-color has-text-color has-small-font-size\">ご質問・情報の訂正依頼は<a href=\"/contact/\">お問い合わせ</a>から受け付けています。</p>\n<!-- /wp:paragraph -->"
+		},
+		{
+			"type": "page",
+			"slug": "contact",
+			"title": "お問い合わせ",
+			"status": "publish",
+			"content": "<!-- wp:paragraph -->\n<p>当サイトへのお問い合わせは、以下のフォームよりお願いいたします。（フォームは公開準備中です。）</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>掲載情報の誤り・更新依頼、提携・広告に関するご相談などを受け付けています。</p>\n<!-- /wp:paragraph -->"
+		}
+	]
+}

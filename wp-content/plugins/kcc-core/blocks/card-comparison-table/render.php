@@ -90,12 +90,18 @@ $kcc_verify_labels = array(
 					</div>
 				</div>
 
-				<div class="kcc-card__viz" style="--kcc-h: <?php echo (int) $kcc_hue; ?>;">
-					<span class="kcc-card__viz-chip" aria-hidden="true"></span>
-					<span class="kcc-card__viz-net"><?php echo esc_html( $kcc_card_kind ); ?></span>
-					<span class="kcc-card__viz-name"><?php echo esc_html( $row['title'] ); ?></span>
-					<span class="kcc-card__viz-foot">CRYPTO CARD</span>
-				</div>
+				<?php if ( '' !== $row['image'] ) : ?>
+					<div class="kcc-card__viz kcc-card__viz--img">
+						<img src="<?php echo esc_url( $row['image'] ); ?>" alt="<?php echo esc_attr( $row['title'] ); ?>の券面" loading="lazy" decoding="async">
+					</div>
+				<?php else : ?>
+					<div class="kcc-card__viz" style="--kcc-h: <?php echo (int) $kcc_hue; ?>;">
+						<span class="kcc-card__viz-chip" aria-hidden="true"></span>
+						<span class="kcc-card__viz-net"><?php echo esc_html( $kcc_card_kind ); ?></span>
+						<span class="kcc-card__viz-name"><?php echo esc_html( $row['title'] ); ?></span>
+						<span class="kcc-card__viz-foot">CRYPTO CARD</span>
+					</div>
+				<?php endif; ?>
 
 				<h3 class="kcc-card__name">
 					<a href="<?php echo esc_url( $row['permalink'] ); ?>"><?php echo esc_html( $row['title'] ); ?></a>

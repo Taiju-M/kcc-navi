@@ -29,6 +29,7 @@ $cashback       = (string) get_field( 'card_cashback', $kcc_id );
 
 $kcc_hue       = abs( (int) crc32( (string) $title ) ) % 360;
 $kcc_card_kind = $has_physical ? '物理 + バーチャル' : 'バーチャル';
+$kcc_image     = (string) get_the_post_thumbnail_url( $kcc_id, 'large' );
 
 $bool_label = static function ( bool $value, string $yes = '可', string $no = '不可' ): string {
 	return $value
@@ -60,12 +61,18 @@ $kcc_groups = array(
 ?>
 <div class="kcc-spec">
 	<div class="kcc-spec__hero">
-		<div class="kcc-spec__viz" style="--kcc-h: <?php echo (int) $kcc_hue; ?>;">
-			<span class="kcc-spec__viz-chip" aria-hidden="true"></span>
-			<span class="kcc-spec__viz-net"><?php echo esc_html( $kcc_card_kind ); ?></span>
-			<span class="kcc-spec__viz-name"><?php echo esc_html( $title ); ?></span>
-			<span class="kcc-spec__viz-foot">CRYPTO CARD</span>
-		</div>
+		<?php if ( '' !== $kcc_image ) : ?>
+			<div class="kcc-spec__viz kcc-spec__viz--img">
+				<img src="<?php echo esc_url( $kcc_image ); ?>" alt="<?php echo esc_attr( $title ); ?>の券面" loading="lazy" decoding="async">
+			</div>
+		<?php else : ?>
+			<div class="kcc-spec__viz" style="--kcc-h: <?php echo (int) $kcc_hue; ?>;">
+				<span class="kcc-spec__viz-chip" aria-hidden="true"></span>
+				<span class="kcc-spec__viz-net"><?php echo esc_html( $kcc_card_kind ); ?></span>
+				<span class="kcc-spec__viz-name"><?php echo esc_html( $title ); ?></span>
+				<span class="kcc-spec__viz-foot">CRYPTO CARD</span>
+			</div>
+		<?php endif; ?>
 		<div class="kcc-spec__hero-body">
 			<?php if ( $cashback ) : ?>
 				<div class="kcc-spec__headline">

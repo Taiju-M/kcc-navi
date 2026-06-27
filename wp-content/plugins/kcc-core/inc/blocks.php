@@ -68,6 +68,7 @@ function kcc_get_services_for_table( string $service_type = 'card' ): array {
 			'id'             => $id,
 			'title'          => get_the_title( $id ),
 			'permalink'      => get_permalink( $id ),
+			'image'          => (string) get_the_post_thumbnail_url( $id, 'medium_large' ),
 			'cta_url'        => $cta_url,
 			'is_affiliate'   => (bool) $affiliate_url,
 			'available_japan' => (bool) get_field( 'available_japan', $id ),

@@ -22,6 +22,36 @@
 			return isNaN(value) ? 0 : value;
 		}
 
+		function recalcRanks() {
+			var rank = 0;
+			allRows.forEach(function (row) {
+				var badge = row.querySelector("[data-kcc-rank]");
+				var hidden = row.classList.contains("kcc-comparison__row--hidden");
+				if (badge) {
+					badge.classList.remove(
+						"kcc-comparison__rank--1",
+						"kcc-comparison__rank--2",
+						"kcc-comparison__rank--3",
+					);
+				}
+				if (hidden) {
+					row.classList.remove("kcc-comparison__row--top");
+					if (badge) {
+						badge.textContent = "";
+					}
+					return;
+				}
+				rank += 1;
+				if (badge) {
+					badge.textContent = String(rank);
+					if (rank <= 3) {
+						badge.classList.add("kcc-comparison__rank--" + rank);
+					}
+				}
+				row.classList.toggle("kcc-comparison__row--top", rank <= 3);
+			});
+		}
+
 		function applySort() {
 			var key = sortSelect.value;
 			var asc = ascKeys.indexOf(key) !== -1;
@@ -33,6 +63,8 @@
 			sorted.forEach(function (row) {
 				tbody.appendChild(row);
 			});
+			allRows = sorted;
+			recalcRanks();
 		}
 
 		function applyFilters() {
@@ -46,11 +78,15 @@
 				});
 				row.classList.toggle("kcc-comparison__row--hidden", !visible);
 			});
+			recalcRanks();
 		}
 
 		sortSelect.addEventListener("change", applySort);
 		filters.forEach(function (cb) {
-			cb.addEventListener("change", applyFilters);
+			cb.addEventListener("change", function () {
+				cb.closest(".kcc-chip").classList.toggle("is-active", cb.checked);
+				applyFilters();
+			});
 		});
 
 		applySort();

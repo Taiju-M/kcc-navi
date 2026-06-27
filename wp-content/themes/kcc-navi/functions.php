@@ -34,7 +34,7 @@ function kcc_navi_assets(): void {
 		wp_get_theme()->get( 'Version' )
 	);
 
-	wp_enqueue_script(
+	wp_register_script(
 		'kcc-comparison-table',
 		get_theme_file_uri( 'assets/js/comparison-table.js' ),
 		array(),

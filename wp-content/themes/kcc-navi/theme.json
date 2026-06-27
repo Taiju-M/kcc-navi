@@ -145,7 +145,7 @@
 			"button": {
 				"color": {
 					"background": "var(--wp--preset--color--accent)",
-					"text": "var(--wp--preset--color--contrast)"
+					"text": "#1a1207"
 				},
 				"typography": { "fontWeight": "700" },
 				"border": { "radius": "0.6rem" },

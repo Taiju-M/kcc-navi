@@ -79,7 +79,8 @@
 	margin: 0;
 }
 
-.kcc-chip:has(input:checked) {
+.kcc-chip:has(input:checked),
+.kcc-chip.is-active {
 	background: rgba(26, 86, 219, 0.1);
 	border-color: var(--kcc-c-primary);
 	color: var(--kcc-c-primary);

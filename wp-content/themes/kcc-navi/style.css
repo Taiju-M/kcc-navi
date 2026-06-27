@@ -616,7 +616,7 @@ main.wp-block-group > h2.wp-block-heading::before {
 .wp-element-button,
 .wp-block-button__link {
 	background: var(--kcc-grad-accent);
-	color: #1a1207 !important;
+	color: #1a1207;
 	border: none;
 	box-shadow: var(--kcc-shadow-accent);
 	transition:

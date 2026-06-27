@@ -17,6 +17,8 @@ if ( empty( $kcc_rows ) ) {
 	echo '<p>表示できるカードがまだありません。</p>';
 	return;
 }
+wp_enqueue_script( 'kcc-comparison-table' );
+
 $kcc_yesno = static function ( bool $value ): string {
 	return $value
 		? '<span class="kcc-flag kcc-flag--yes" aria-label="可">✓</span>'

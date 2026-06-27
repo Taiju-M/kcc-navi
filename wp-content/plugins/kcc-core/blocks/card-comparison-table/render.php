@@ -57,7 +57,7 @@ $kcc_verify_labels = array(
 		<?php foreach ( $kcc_rows as $row ) : ?>
 			<?php
 			++$kcc_rank;
-			$kcc_hue       = (int) ( crc32( (string) $row['title'] ) % 360 );
+			$kcc_hue       = abs( (int) crc32( (string) $row['title'] ) ) % 360;
 			$kcc_vs        = $row['verify_status'];
 			$kcc_vs_label  = isset( $kcc_verify_labels[ $kcc_vs ] ) ? $kcc_verify_labels[ $kcc_vs ] : '要確認';
 			$kcc_vs_class  = in_array( $kcc_vs, array( 'verified', 'pending', 'outdated' ), true ) ? $kcc_vs : 'pending';
@@ -76,7 +76,7 @@ $kcc_verify_labels = array(
 				data-verified="<?php echo ( 'verified' === $row['verify_status'] ) ? '1' : '0'; ?>"
 			>
 				<div class="kcc-card__topline">
-					<span class="kcc-card__rank kcc-card__rank--<?php echo (int) $kcc_rank; ?>" data-kcc-rank><?php echo (int) $kcc_rank; ?></span>
+					<span class="kcc-card__rank<?php echo $kcc_rank <= 3 ? ' kcc-card__rank--' . (int) $kcc_rank : ''; ?>" data-kcc-rank><?php echo (int) $kcc_rank; ?></span>
 					<div class="kcc-card__tags">
 						<?php if ( $row['available_overseas_jp'] ) : ?>
 							<span class="kcc-tag kcc-tag--hero">海外在住OK</span>
@@ -161,6 +161,6 @@ $kcc_item_list_ld = array(
 	'itemListElement' => $kcc_item_list,
 );
 echo '<script type="application/ld+json">'
-	. wp_json_encode( $kcc_item_list_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+	. wp_json_encode( $kcc_item_list_ld, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
 	. '</script>';
 ?>

@@ -86,9 +86,10 @@ function kcc_handle_bridge(): void {
 	$source = isset( $_GET['src'] ) ? sanitize_key( wp_unslash( $_GET['src'] ) ) : 'direct';
 
 	$ga4_id     = defined( 'KCC_GA4_MEASUREMENT_ID' ) ? (string) KCC_GA4_MEASUREMENT_ID : '';
-	$dest_js    = wp_json_encode( $dest );
-	$card_js    = wp_json_encode( $slug );
-	$source_js  = wp_json_encode( $source );
+	$js_flags   = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE;
+	$dest_js    = wp_json_encode( $dest, $js_flags );
+	$card_js    = wp_json_encode( $slug, $js_flags );
+	$source_js  = wp_json_encode( $source, $js_flags );
 
 	nocache_headers();
 	header( 'Content-Type: text/html; charset=utf-8' );
@@ -106,7 +107,7 @@ function kcc_handle_bridge(): void {
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', <?php echo wp_json_encode( $ga4_id ); ?>);
+			gtag('config', <?php echo wp_json_encode( $ga4_id, $js_flags ); ?>);
 		</script>
 	<?php endif; ?>
 	<script>

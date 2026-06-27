@@ -27,7 +27,7 @@ $avail_japan    = (bool) get_field( 'available_japan', $kcc_id );
 $avail_overseas = (bool) get_field( 'available_overseas_jp', $kcc_id );
 $cashback       = (string) get_field( 'card_cashback', $kcc_id );
 
-$kcc_hue       = (int) ( crc32( (string) $title ) % 360 );
+$kcc_hue       = abs( (int) crc32( (string) $title ) ) % 360;
 $kcc_card_kind = $has_physical ? '物理 + バーチャル' : 'バーチャル';
 
 $bool_label = static function ( bool $value, string $yes = '可', string $no = '不可' ): string {

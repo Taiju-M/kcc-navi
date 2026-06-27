@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kcc/card-diagnosis",
+	"title": "カード診断",
+	"category": "widgets",
+	"icon": "search",
+	"description": "5つの質問に答えると、居住地・カード形態・重視点に合う仮想通貨カードをルールベースで提案する診断。",
+	"keywords": ["card", "diagnosis", "診断", "crypto"],
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js",
+	"supports": {
+		"align": ["wide", "full"],
+		"anchor": true
+	},
+	"style": "file:./style.css"
+}

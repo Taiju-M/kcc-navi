@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       KCC Core
- * Description:        海外クリプトカード診断ナビの中核。service CPT・タクソノミー・ACFフィールド・比較表ブロックを提供。
+ * Description:        クリプトカード診断ガイドの中核。service CPT・タクソノミー・ACFフィールド・比較表ブロックを提供。
  * Version:           0.1.0
  * Requires at least: 6.5
  * Requires PHP:      8.1

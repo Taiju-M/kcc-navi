@@ -17,8 +17,13 @@ if ( empty( $kcc_rows ) ) {
 	echo '<p>表示できるカードがまだありません。</p>';
 	return;
 }
+$kcc_yesno = static function ( bool $value ): string {
+	return $value
+		? '<span class="kcc-flag kcc-flag--yes" aria-label="可">✓</span>'
+		: '<span class="kcc-flag kcc-flag--no" aria-label="不可">—</span>';
+};
 ?>
-<div class="kcc-comparison" data-kcc-comparison>
+<div class="kcc-comparison" id="kcc-compare" data-kcc-comparison>
 	<div class="kcc-comparison__controls">
 		<div class="kcc-comparison__sort">
 			<label for="kcc-sort">並び替え</label>
@@ -29,14 +34,15 @@ if ( empty( $kcc_rows ) ) {
 				<option value="annual_fee">年会費が安い</option>
 			</select>
 		</div>
-		<div class="kcc-comparison__filters">
-			<label><input type="checkbox" data-kcc-filter="available_japan"> 日本在住可</label>
-			<label><input type="checkbox" data-kcc-filter="available_overseas_jp"> 海外在住可</label>
-			<label><input type="checkbox" data-kcc-filter="has_physical"> 物理カード有</label>
-			<label><input type="checkbox" data-kcc-filter="verified"> 確認済みのみ</label>
+		<div class="kcc-comparison__filters" role="group" aria-label="絞り込み">
+			<label class="kcc-chip"><input type="checkbox" data-kcc-filter="available_japan"> 日本在住可</label>
+			<label class="kcc-chip"><input type="checkbox" data-kcc-filter="available_overseas_jp"> 海外在住可</label>
+			<label class="kcc-chip"><input type="checkbox" data-kcc-filter="has_physical"> 物理カード有</label>
+			<label class="kcc-chip"><input type="checkbox" data-kcc-filter="verified"> 確認済みのみ</label>
 		</div>
 	</div>
 
+	<div class="kcc-comparison__table-wrap">
 	<table class="kcc-comparison__table">
 		<thead>
 			<tr>
@@ -59,8 +65,11 @@ if ( empty( $kcc_rows ) ) {
 				'outdated' => '古い可能性',
 			);
 			?>
+			<?php $kcc_rank = 0; ?>
 			<?php foreach ( $kcc_rows as $row ) : ?>
+				<?php ++$kcc_rank; ?>
 				<tr
+					class="<?php echo $kcc_rank <= 3 ? 'kcc-comparison__row--top' : ''; ?>"
 					data-priority="<?php echo esc_attr( (string) $row['priority'] ); ?>"
 					data-cashback="<?php echo esc_attr( (string) kcc_parse_percent( $row['cashback'] ) ); ?>"
 					data-issue_fee="<?php echo esc_attr( (string) kcc_parse_fee( $row['issue_fee'] ) ); ?>"
@@ -71,18 +80,21 @@ if ( empty( $kcc_rows ) ) {
 					data-verified="<?php echo ( 'verified' === $row['verify_status'] ) ? '1' : '0'; ?>"
 				>
 					<td class="kcc-comparison__name">
-						<a href="<?php echo esc_url( $row['permalink'] ); ?>"><?php echo esc_html( $row['title'] ); ?></a>
-						<?php if ( $row['last_verified'] ) : ?>
-							<span class="kcc-comparison__verified">最終確認: <?php echo esc_html( $row['last_verified'] ); ?></span>
-						<?php endif; ?>
+						<span class="kcc-comparison__rank kcc-comparison__rank--<?php echo (int) $kcc_rank; ?>" data-kcc-rank><?php echo (int) $kcc_rank; ?></span>
+						<span class="kcc-comparison__name-inner">
+							<a href="<?php echo esc_url( $row['permalink'] ); ?>"><?php echo esc_html( $row['title'] ); ?></a>
+							<?php if ( $row['last_verified'] ) : ?>
+								<span class="kcc-comparison__verified">最終確認: <?php echo esc_html( $row['last_verified'] ); ?></span>
+							<?php endif; ?>
+						</span>
 					</td>
-					<td><?php echo $row['cashback'] ? esc_html( $row['cashback'] ) : '—'; ?></td>
-					<td><?php echo $row['issue_fee'] ? esc_html( $row['issue_fee'] ) : '—'; ?></td>
-					<td><?php echo $row['annual_fee'] ? esc_html( $row['annual_fee'] ) : '—'; ?></td>
-					<td><?php echo $row['available_japan'] ? '○' : '×'; ?></td>
-					<td><?php echo $row['available_overseas_jp'] ? '○' : '×'; ?></td>
-					<td><?php echo $row['has_physical'] ? '○' : '×'; ?></td>
-					<td>
+					<td data-label="還元率" class="kcc-comparison__num"><?php echo $row['cashback'] ? esc_html( $row['cashback'] ) : '—'; ?></td>
+					<td data-label="作成費" class="kcc-comparison__num"><?php echo $row['issue_fee'] ? esc_html( $row['issue_fee'] ) : '—'; ?></td>
+					<td data-label="年会費" class="kcc-comparison__num"><?php echo $row['annual_fee'] ? esc_html( $row['annual_fee'] ) : '—'; ?></td>
+					<td data-label="日本可"><?php echo $kcc_yesno( (bool) $row['available_japan'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+					<td data-label="海外在住可"><?php echo $kcc_yesno( (bool) $row['available_overseas_jp'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+					<td data-label="物理"><?php echo $kcc_yesno( (bool) $row['has_physical'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
+					<td data-label="確認">
 						<?php
 						$kcc_vs = $row['verify_status'];
 						$kcc_vs_label = isset( $kcc_verify_labels[ $kcc_vs ] ) ? $kcc_verify_labels[ $kcc_vs ] : '要確認';
@@ -92,8 +104,8 @@ if ( empty( $kcc_rows ) ) {
 					</td>
 					<td>
 						<?php if ( $row['cta_url'] ) : ?>
-							<a class="kcc-comparison__cta" href="<?php echo esc_url( $row['cta_url'] ); ?>" target="_blank" rel="nofollow noopener">
-								公式サイト
+							<a class="kcc-comparison__cta" href="<?php echo esc_url( $row['cta_url'] ); ?>" target="_blank" rel="nofollow sponsored noopener">
+								公式サイト<span aria-hidden="true">→</span>
 							</a>
 						<?php endif; ?>
 					</td>
@@ -101,6 +113,7 @@ if ( empty( $kcc_rows ) ) {
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	</div>
 	<p class="kcc-comparison__disclaimer">
 		当サイトは広告・アフィリエイトリンクを含みます。掲載情報は各公式サイトを基に作成していますが、最新の条件は必ず公式でご確認ください。投資・税務の助言ではありません。
 	</p>

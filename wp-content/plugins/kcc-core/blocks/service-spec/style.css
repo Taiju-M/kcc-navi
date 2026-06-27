@@ -1,5 +1,14 @@
 .kcc-spec {
-	margin: 1.5rem 0;
+	--kcc-s-line: #e3e8f1;
+	--kcc-s-ink: #0d1526;
+	--kcc-s-muted: #56627a;
+	margin: 1.75rem 0;
+	border: 1px solid var(--kcc-s-line);
+	border-radius: 0.95rem;
+	overflow: hidden;
+	box-shadow: 0 8px 28px -14px rgba(13, 21, 38, 0.18);
+	background: #fff;
+	font-variant-numeric: tabular-nums;
 }
 
 .kcc-spec__table {
@@ -7,40 +16,70 @@
 	border-collapse: collapse;
 }
 
+.kcc-spec__table tr:nth-child(even) {
+	background: #fafbfe;
+}
+
 .kcc-spec__table th,
 .kcc-spec__table td {
-	padding: 0.55rem 0.75rem;
-	border-bottom: 1px solid #e3e3e3;
+	padding: 0.7rem 1rem;
+	border-bottom: 1px solid var(--kcc-s-line);
 	text-align: left;
 	vertical-align: top;
 }
 
+.kcc-spec__table tr:last-child th,
+.kcc-spec__table tr:last-child td {
+	border-bottom: none;
+}
+
 .kcc-spec__table th {
-	width: 38%;
-	background: #f6f7f9;
+	width: 40%;
+	color: var(--kcc-s-muted);
 	font-weight: 700;
+	font-size: 0.85rem;
 	white-space: nowrap;
 }
 
+.kcc-spec__table td {
+	color: var(--kcc-s-ink);
+	font-weight: 600;
+}
+
 .kcc-spec__cta-wrap {
-	margin: 1.25rem 0 0.5rem;
+	margin: 0;
+	padding: 1.25rem 1rem;
+	background: linear-gradient(135deg, #0b1838, #1a3a8f);
+	text-align: center;
 }
 
 .kcc-spec__cta {
-	display: inline-block;
-	padding: 0.7rem 1.5rem;
-	background: #f59e0b;
-	color: #1a1a1a;
-	font-weight: 700;
-	border-radius: 8px;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.85rem 2rem;
+	background: linear-gradient(135deg, #f59e0b, #f97316);
+	color: #1a1207;
+	font-weight: 800;
+	border-radius: 0.6rem;
 	text-decoration: none;
+	box-shadow: 0 10px 26px -8px rgba(245, 158, 11, 0.6);
+	transition:
+		transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+		box-shadow 0.18s;
 }
 
 .kcc-spec__cta:hover {
-	background: #d97706;
+	transform: translateY(-2px);
+	box-shadow: 0 16px 32px -10px rgba(245, 158, 11, 0.7);
+	color: #1a1207;
 }
 
 .kcc-spec__verified {
-	font-size: 0.75rem;
-	color: #777;
+	margin: 0;
+	padding: 0.6rem 1rem;
+	font-size: 0.74rem;
+	color: var(--kcc-s-muted);
+	background: #f4f7fc;
+	text-align: center;
 }

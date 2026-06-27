@@ -21,9 +21,16 @@ add_action( 'after_setup_theme', 'kcc_navi_setup' );
 
 function kcc_navi_assets(): void {
 	wp_enqueue_style(
+		'kcc-google-fonts',
+		'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap',
+		array(),
+		null
+	);
+
+	wp_enqueue_style(
 		'kcc-navi',
 		get_stylesheet_uri(),
-		array(),
+		array( 'kcc-google-fonts' ),
 		wp_get_theme()->get( 'Version' )
 	);
 
@@ -36,6 +43,25 @@ function kcc_navi_assets(): void {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'kcc_navi_assets' );
+
+/**
+ * Google Fonts 配信元へ preconnect（描画ブロックを減らす）。
+ *
+ * @param array<int, mixed> $urls
+ * @param string            $relation_type
+ * @return array<int, mixed>
+ */
+function kcc_navi_resource_hints( array $urls, string $relation_type ): array {
+	if ( 'preconnect' === $relation_type ) {
+		$urls[] = array( 'href' => 'https://fonts.googleapis.com' );
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+	}
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'kcc_navi_resource_hints', 10, 2 );
 
 /**
  * GA4 gtag を head に注入。測定IDは定数 KCC_GA4_MEASUREMENT_ID（wp-config / .wp-env.json）から。

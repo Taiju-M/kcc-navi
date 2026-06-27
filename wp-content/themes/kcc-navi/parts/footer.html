@@ -1,15 +1,19 @@
-<!-- wp:group {"tagName":"footer","style":{"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
-<footer class="wp-block-group has-surface-background-color has-background" style="padding-top:2.5rem;padding-bottom:2.5rem">
-	<!-- wp:paragraph {"fontSize":"small","textColor":"muted"} -->
-	<p class="has-muted-color has-text-color has-small-font-size">当サイトは広告・アフィリエイトリンクを含みます（PR）。掲載情報は各公式サイトを基に作成していますが、料金・条件は変更される場合があります。最新情報は必ず公式でご確認ください。本サイトは投資・税務に関する助言を行うものではありません。</p>
+<!-- wp:group {"tagName":"footer","className":"kcc-footer","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group kcc-footer">
+	<!-- wp:paragraph {"className":"kcc-footer__brand"} -->
+	<p class="kcc-footer__brand">海外クリプトカード診断ナビ</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:paragraph {"className":"kcc-footer__disclaimer","fontSize":"small"} -->
+	<p class="kcc-footer__disclaimer has-small-font-size">当サイトは広告・アフィリエイトリンクを含みます（PR）。掲載情報は各公式サイトを基に作成していますが、料金・条件は変更される場合があります。最新情報は必ず公式でご確認ください。本サイトは投資・税務に関する助言を行うものではありません。</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","flexWrap":"wrap"},"fontSize":"small"} -->
 		<!-- wp:page-list /-->
 	<!-- /wp:navigation -->
 
-	<!-- wp:paragraph {"align":"center","fontSize":"small","textColor":"muted"} -->
-	<p class="has-text-align-center has-muted-color has-text-color has-small-font-size">© 海外クリプトカード診断ナビ</p>
+	<!-- wp:paragraph {"className":"kcc-footer__copy"} -->
+	<p class="kcc-footer__copy">© 海外クリプトカード診断ナビ｜海外在住日本人のための仮想通貨カード比較</p>
 	<!-- /wp:paragraph -->
 </footer>
 <!-- /wp:group -->

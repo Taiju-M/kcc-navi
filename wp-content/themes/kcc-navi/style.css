@@ -121,15 +121,22 @@ a {
 
 .kcc-header .wp-block-site-title {
 	font-family: var(--wp--preset--font-family--display, sans-serif);
+	font-weight: 800;
+	font-size: 1.15rem;
 }
 
 .kcc-header .wp-block-site-title a {
-	color: var(--kcc-ink);
+	color: var(--kcc-navy, #0b1838);
 	text-decoration: none;
-	background: var(--kcc-grad-primary);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+	.kcc-header .wp-block-site-title a {
+		background: var(--kcc-grad-primary);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 
 .kcc-header .wp-block-navigation {
@@ -342,7 +349,7 @@ a {
 	perspective: 1000px;
 }
 
-.kcc-card {
+.kcc-hero__visual .kcc-card {
 	position: absolute;
 	width: 270px;
 	aspect-ratio: 1.586;
@@ -357,7 +364,7 @@ a {
 	justify-content: space-between;
 }
 
-.kcc-card::after {
+.kcc-hero__visual .kcc-card::after {
 	content: "";
 	position: absolute;
 	top: -40%;
@@ -373,33 +380,33 @@ a {
 	transform: rotate(18deg);
 }
 
-.kcc-card__chip {
+.kcc-hero__visual .kcc-card__chip {
 	width: 34px;
 	height: 26px;
 	border-radius: 6px;
 	background: linear-gradient(135deg, #ffe9a8, #d9a441);
 }
 
-.kcc-card__num {
+.kcc-hero__visual .kcc-card__num {
 	font-family: var(--wp--preset--font-family--display, sans-serif);
 	font-size: 0.92rem;
 	letter-spacing: 0.12em;
 	opacity: 0.92;
 }
 
-.kcc-card--1 {
+.kcc-hero__visual .kcc-card--1 {
 	background: linear-gradient(135deg, #1a56db, #0b2a73);
 	transform: translate(8%, 12%) rotate(-9deg);
 	z-index: 1;
 }
 
-.kcc-card--2 {
+.kcc-hero__visual .kcc-card--2 {
 	background: linear-gradient(135deg, #f59e0b, #b45309);
 	transform: translate(34%, 30%) rotate(6deg);
 	z-index: 2;
 }
 
-.kcc-card--3 {
+.kcc-hero__visual .kcc-card--3 {
 	background: linear-gradient(135deg, #111c3a, #2a3f73);
 	transform: translate(20%, -6%) rotate(-2deg);
 	z-index: 3;
@@ -426,7 +433,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.kcc-card--3 {
+	.kcc-hero__visual .kcc-card--3 {
 		animation: none;
 	}
 	html {

@@ -4,7 +4,8 @@
 	--kcc-c-muted: #56627a;
 	--kcc-c-primary: #1a56db;
 	--kcc-c-accent: #f59e0b;
-	margin: 2rem 0;
+	--kcc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	margin: 2.5rem 0;
 	font-size: 0.95rem;
 	font-variant-numeric: tabular-nums;
 }
@@ -17,7 +18,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.9rem 1.1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 1.4rem;
 	background: #fff;
 	border: 1px solid var(--kcc-c-line);
 	border-radius: 0.85rem;
@@ -65,7 +66,7 @@
 	padding: 0.4rem 0.8rem;
 	border-radius: 999px;
 	cursor: pointer;
-	transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: all 0.18s var(--kcc-ease);
 	user-select: none;
 }
 
@@ -86,151 +87,290 @@
 	color: var(--kcc-c-primary);
 }
 
-/* ---------- Table shell ---------- */
-.kcc-comparison__table-wrap {
-	border: 1px solid var(--kcc-c-line);
-	border-radius: 0.95rem;
-	overflow: hidden;
-	box-shadow: 0 8px 28px -12px rgba(13, 21, 38, 0.18);
+/* ---------- Card grid ---------- */
+.kcc-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+	gap: 1.25rem;
+}
+
+.kcc-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
 	background: #fff;
+	border: 1px solid var(--kcc-c-line);
+	border-radius: 1.1rem;
+	padding: 1.1rem 1.1rem 1.2rem;
+	box-shadow: 0 10px 30px -16px rgba(13, 21, 38, 0.22);
+	transition:
+		transform 0.22s var(--kcc-ease),
+		box-shadow 0.22s var(--kcc-ease),
+		border-color 0.22s var(--kcc-ease);
 }
 
-.kcc-comparison__table {
-	width: 100%;
-	border-collapse: collapse;
+.kcc-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 22px 44px -18px rgba(13, 21, 38, 0.3);
+	border-color: rgba(26, 86, 219, 0.35);
 }
 
-.kcc-comparison__table thead th {
-	position: sticky;
-	top: 0;
-	z-index: 2;
-	background: #0b1838;
-	color: #fff;
-	font-weight: 700;
-	font-size: 0.82rem;
-	letter-spacing: 0.02em;
-	white-space: nowrap;
-	padding: 0.8rem 0.55rem;
-	text-align: center;
+.kcc-card--top {
+	border-color: rgba(245, 158, 11, 0.55);
+	box-shadow:
+		0 0 0 1px rgba(245, 158, 11, 0.35),
+		0 16px 40px -18px rgba(245, 158, 11, 0.45);
 }
 
-.kcc-comparison__table thead th:first-child {
-	text-align: left;
-	padding-left: 1rem;
+.kcc-card--hidden {
+	display: none;
 }
 
-.kcc-comparison__table tbody td {
-	padding: 0.85rem 0.55rem;
-	border-bottom: 1px solid var(--kcc-c-line);
-	text-align: center;
-	vertical-align: middle;
-}
-
-.kcc-comparison__table tbody tr:last-child td {
-	border-bottom: none;
-}
-
-.kcc-comparison__table tbody tr {
-	transition: background 0.16s ease;
-}
-
-.kcc-comparison__table tbody tr:hover {
-	background: #f7f9fd;
-}
-
-.kcc-comparison__row--top {
-	background: linear-gradient(90deg, rgba(245, 158, 11, 0.07), transparent 45%);
-}
-
-.kcc-comparison__num {
-	font-weight: 700;
-	color: var(--kcc-c-ink);
-}
-
-/* ---------- Name cell + rank ---------- */
-.kcc-comparison__name {
-	text-align: left !important;
-	padding-left: 1rem !important;
-}
-
-.kcc-comparison__name {
+/* ---------- Topline: rank + tags ---------- */
+.kcc-card__topline {
 	display: flex;
 	align-items: center;
-	gap: 0.7rem;
+	gap: 0.6rem;
+	flex-wrap: wrap;
 }
 
-.kcc-comparison__rank {
+.kcc-card__rank {
 	flex: 0 0 auto;
 	display: inline-grid;
 	place-items: center;
-	width: 1.7rem;
-	height: 1.7rem;
-	border-radius: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.55rem;
 	font-family: "Outfit", sans-serif;
 	font-weight: 800;
-	font-size: 0.85rem;
+	font-size: 0.95rem;
 	color: #fff;
 	background: #9aa6bd;
 }
 
-.kcc-comparison__rank--1 {
+.kcc-card__rank--1 {
 	background: linear-gradient(135deg, #f7c948, #d99e0b);
 	color: #3a2a00;
 }
-.kcc-comparison__rank--2 {
+.kcc-card__rank--2 {
 	background: linear-gradient(135deg, #cfd8e6, #9aa6bd);
 	color: #2a3142;
 }
-.kcc-comparison__rank--3 {
+.kcc-card__rank--3 {
 	background: linear-gradient(135deg, #e2a877, #b9783f);
 	color: #3a1f08;
 }
 
-.kcc-comparison__name-inner {
+.kcc-card__tags {
 	display: flex;
-	flex-direction: column;
-	gap: 0.1rem;
+	flex-wrap: wrap;
+	gap: 0.35rem;
 }
 
-.kcc-comparison__name-inner a {
+.kcc-tag {
+	font-size: 0.7rem;
 	font-weight: 700;
+	color: var(--kcc-c-muted);
+	background: #f1f4fa;
+	border: 1px solid var(--kcc-c-line);
+	padding: 0.18rem 0.5rem;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+
+.kcc-tag--hero {
+	color: #fff;
+	background: linear-gradient(135deg, #1a56db, #2563eb);
+	border-color: transparent;
+}
+
+/* ---------- Card visual (CSS mockup, brand-agnostic) ---------- */
+.kcc-card__viz {
+	position: relative;
+	aspect-ratio: 1.586 / 1;
+	border-radius: 0.85rem;
+	padding: 0.95rem 1.05rem;
+	color: #fff;
+	display: grid;
+	grid-template-areas:
+		"chip net"
+		"name name"
+		"foot foot";
+	grid-template-rows: auto 1fr auto;
+	background:
+		radial-gradient(130% 130% at 82% 6%, hsl(var(--kcc-h, 220) 72% 48% / 0.55), transparent 58%),
+		linear-gradient(135deg, #0b1838, #122a59 52%, hsl(var(--kcc-h, 220) 52% 22%));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.14),
+		0 12px 26px -14px rgba(13, 21, 38, 0.6);
+	overflow: hidden;
+}
+
+.kcc-card__viz::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		115deg,
+		transparent 38%,
+		rgba(255, 255, 255, 0.16) 50%,
+		transparent 62%
+	);
+	pointer-events: none;
+}
+
+.kcc-card__viz-chip {
+	grid-area: chip;
+	width: 2.5rem;
+	height: 1.75rem;
+	border-radius: 0.35rem;
+	background: linear-gradient(135deg, #f3d27a, #b8860b);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+	position: relative;
+}
+
+.kcc-card__viz-chip::after {
+	content: "";
+	position: absolute;
+	inset: 0.32rem 0.4rem;
+	border: 1px solid rgba(120, 80, 0, 0.5);
+	border-radius: 0.15rem;
+	background:
+		linear-gradient(rgba(120, 80, 0, 0.5), rgba(120, 80, 0, 0.5)) center / 100% 1px no-repeat,
+		linear-gradient(rgba(120, 80, 0, 0.5), rgba(120, 80, 0, 0.5)) center / 1px 100% no-repeat;
+}
+
+.kcc-card__viz-net {
+	grid-area: net;
+	justify-self: end;
+	align-self: start;
+	font-size: 0.66rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	opacity: 0.88;
+}
+
+.kcc-card__viz-name {
+	grid-area: name;
+	align-self: center;
+	font-family: "Outfit", sans-serif;
+	font-weight: 800;
+	font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+}
+
+.kcc-card__viz-foot {
+	grid-area: foot;
+	font-size: 0.62rem;
+	font-weight: 600;
+	letter-spacing: 0.26em;
+	opacity: 0.62;
+}
+
+/* ---------- Name ---------- */
+.kcc-card__name {
+	margin: 0;
+	font-size: 1.15rem;
+	font-weight: 800;
+	line-height: 1.3;
+}
+
+.kcc-card__name a {
 	color: var(--kcc-c-ink);
 	text-decoration: none;
-	font-size: 1rem;
 }
 
-.kcc-comparison__name-inner a:hover {
+.kcc-card__name a:hover {
 	color: var(--kcc-c-primary);
 }
 
-.kcc-comparison__verified {
-	font-size: 0.7rem;
-	color: var(--kcc-c-muted);
+/* ---------- Specs ---------- */
+.kcc-card__specs {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 }
 
-/* ---------- Flags ✓ / — ---------- */
+.kcc-card__spec {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid var(--kcc-c-line);
+}
+
+.kcc-card__spec:last-child {
+	border-bottom: none;
+}
+
+.kcc-card__spec dt {
+	margin: 0;
+	color: var(--kcc-c-muted);
+	font-size: 0.82rem;
+	font-weight: 600;
+}
+
+.kcc-card__spec dd {
+	margin: 0;
+	font-weight: 700;
+	color: var(--kcc-c-ink);
+	text-align: right;
+}
+
+.kcc-card__spec--hero {
+	align-items: center;
+	padding: 0.65rem 0.85rem;
+	margin-bottom: 0.3rem;
+	border-bottom: none;
+	border-radius: 0.65rem;
+	background: linear-gradient(135deg, rgba(26, 86, 219, 0.09), rgba(245, 158, 11, 0.1));
+}
+
+.kcc-card__spec--hero dt {
+	color: var(--kcc-c-primary);
+	font-weight: 700;
+	font-size: 0.85rem;
+}
+
+.kcc-card__spec--hero dd {
+	font-family: "Outfit", sans-serif;
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+/* ---------- Yes / No flags ---------- */
 .kcc-flag {
-	display: inline-grid;
-	place-items: center;
-	width: 1.5rem;
-	height: 1.5rem;
-	border-radius: 999px;
-	font-weight: 900;
-	font-size: 0.8rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-weight: 700;
+	font-size: 0.88rem;
+}
+
+.kcc-flag span {
+	font-size: 0.95em;
 }
 
 .kcc-flag--yes {
-	background: #dcfce7;
 	color: #15803d;
 }
 
 .kcc-flag--no {
-	background: #f1f3f8;
 	color: #9aa6bd;
 }
 
-/* ---------- Verify pill ---------- */
-.kcc-comparison__verify {
+/* ---------- Meta: verify + date ---------- */
+.kcc-card__meta {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.kcc-card__verify {
 	display: inline-block;
 	padding: 0.18rem 0.55rem;
 	border-radius: 999px;
@@ -239,120 +379,109 @@
 	white-space: nowrap;
 }
 
-.kcc-comparison__verify--verified {
+.kcc-card__verify--verified {
 	background: #dcfce7;
 	color: #166534;
 }
-.kcc-comparison__verify--pending {
+.kcc-card__verify--pending {
 	background: #fef9c3;
 	color: #854d0e;
 }
-.kcc-comparison__verify--outdated {
+.kcc-card__verify--outdated {
 	background: #fee2e2;
 	color: #991b1b;
 }
 
-/* ---------- CTA ---------- */
-.kcc-comparison__cta {
+.kcc-card__date {
+	font-size: 0.7rem;
+	color: var(--kcc-c-muted);
+}
+
+/* ---------- Actions ---------- */
+.kcc-card__actions {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.5rem;
+	margin-top: auto;
+	padding-top: 0.2rem;
+}
+
+.kcc-card__cta {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.25rem;
-	padding: 0.5rem 1rem;
+	justify-content: center;
+	gap: 0.3rem;
+	padding: 0.65rem 1rem;
 	background: linear-gradient(135deg, #f59e0b, #f97316);
 	color: #1a1207;
-	font-weight: 700;
-	border-radius: 0.55rem;
+	font-weight: 800;
+	border-radius: 0.6rem;
 	text-decoration: none;
 	white-space: nowrap;
-	box-shadow: 0 6px 16px -6px rgba(245, 158, 11, 0.55);
+	box-shadow: 0 8px 18px -8px rgba(245, 158, 11, 0.6);
 	transition:
-		transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.18s var(--kcc-ease),
 		box-shadow 0.18s;
 }
 
-.kcc-comparison__cta span {
+.kcc-card__cta span {
 	transition: transform 0.18s ease;
 }
 
-.kcc-comparison__cta:hover {
+.kcc-card__cta:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 12px 24px -8px rgba(245, 158, 11, 0.65);
+	box-shadow: 0 14px 26px -10px rgba(245, 158, 11, 0.7);
 	color: #1a1207;
 }
 
-.kcc-comparison__cta:hover span {
+.kcc-card__cta:hover span {
 	transform: translateX(3px);
 }
 
-/* ---------- Disclaimer ---------- */
+.kcc-card__detail {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.65rem 0.9rem;
+	border: 1px solid var(--kcc-c-line);
+	border-radius: 0.6rem;
+	color: var(--kcc-c-ink);
+	font-weight: 700;
+	font-size: 0.85rem;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: border-color 0.18s var(--kcc-ease), color 0.18s;
+}
+
+.kcc-card__detail:hover {
+	border-color: var(--kcc-c-primary);
+	color: var(--kcc-c-primary);
+}
+
+/* ---------- Empty + disclaimer ---------- */
+.kcc-comparison__empty {
+	margin: 1.5rem 0 0;
+	padding: 1.5rem;
+	text-align: center;
+	color: var(--kcc-c-muted);
+	background: #f4f7fc;
+	border-radius: 0.85rem;
+}
+
 .kcc-comparison__disclaimer {
-	margin-top: 0.85rem;
+	margin-top: 1.1rem;
 	font-size: 0.74rem;
 	color: var(--kcc-c-muted);
 	line-height: 1.7;
 }
 
-.kcc-comparison__row--hidden {
-	display: none;
-}
-
-/* ---------- Mobile: stacked cards ---------- */
-@media (max-width: 720px) {
-	.kcc-comparison__table-wrap {
-		border: none;
-		box-shadow: none;
-		background: transparent;
-		overflow: visible;
+@media (prefers-reduced-motion: reduce) {
+	.kcc-card,
+	.kcc-card__cta,
+	.kcc-card__cta span {
+		transition: none;
 	}
-	.kcc-comparison__table thead {
-		display: none;
-	}
-	.kcc-comparison__table,
-	.kcc-comparison__table tbody,
-	.kcc-comparison__table tr,
-	.kcc-comparison__table td {
-		display: block;
-		width: 100%;
-	}
-	.kcc-comparison__table tbody tr {
-		margin-bottom: 1rem;
-		border: 1px solid var(--kcc-c-line);
-		border-radius: 0.85rem;
-		box-shadow: 0 6px 20px -10px rgba(13, 21, 38, 0.18);
-		overflow: hidden;
-		background: #fff;
-	}
-	.kcc-comparison__row--top {
-		border-color: rgba(245, 158, 11, 0.5);
-	}
-	.kcc-comparison__table tbody td {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		text-align: right;
-		padding: 0.6rem 1rem;
-		border-bottom: 1px solid #f0f2f7;
-	}
-	.kcc-comparison__table tbody td::before {
-		content: attr(data-label);
-		font-weight: 700;
-		color: var(--kcc-c-muted);
-		font-size: 0.8rem;
-		text-align: left;
-	}
-	.kcc-comparison__name {
-		background: #f4f7fc;
-		justify-content: flex-start !important;
-	}
-	.kcc-comparison__name::before {
-		content: none;
-	}
-	.kcc-comparison__cta {
-		width: 100%;
-		justify-content: center;
-		padding: 0.7rem;
-	}
-	.kcc-comparison__table tbody td:last-child::before {
-		content: none;
+	.kcc-card:hover {
+		transform: none;
 	}
 }

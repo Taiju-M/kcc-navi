@@ -2,40 +2,43 @@
 	"use strict";
 
 	function setupTable(root) {
-		var tbody = root.querySelector("[data-kcc-rows]");
+		var grid = root.querySelector("[data-kcc-grid]");
 		var sortSelect = root.querySelector("[data-kcc-sort]");
+		var emptyMsg = root.querySelector("[data-kcc-empty]");
 		var filters = Array.prototype.slice.call(
 			root.querySelectorAll("[data-kcc-filter]"),
 		);
-		if (!tbody || !sortSelect) {
+		if (!grid || !sortSelect) {
 			return;
 		}
 
-		var allRows = Array.prototype.slice.call(tbody.querySelectorAll("tr"));
+		var allCards = Array.prototype.slice.call(
+			grid.querySelectorAll("[data-kcc-card]"),
+		);
 
 		// 昇順でソートすべきキー（小さいほど良い）
 		var ascKeys = ["issue_fee", "annual_fee"];
 
-		function numberAttr(row, key) {
-			var raw = row.getAttribute("data-" + key);
+		function numberAttr(card, key) {
+			var raw = card.getAttribute("data-" + key);
 			var value = parseFloat(raw);
 			return isNaN(value) ? 0 : value;
 		}
 
 		function recalcRanks() {
 			var rank = 0;
-			allRows.forEach(function (row) {
-				var badge = row.querySelector("[data-kcc-rank]");
-				var hidden = row.classList.contains("kcc-comparison__row--hidden");
+			allCards.forEach(function (card) {
+				var badge = card.querySelector("[data-kcc-rank]");
+				var hidden = card.classList.contains("kcc-card--hidden");
 				if (badge) {
 					badge.classList.remove(
-						"kcc-comparison__rank--1",
-						"kcc-comparison__rank--2",
-						"kcc-comparison__rank--3",
+						"kcc-card__rank--1",
+						"kcc-card__rank--2",
+						"kcc-card__rank--3",
 					);
 				}
 				if (hidden) {
-					row.classList.remove("kcc-comparison__row--top");
+					card.classList.remove("kcc-card--top");
 					if (badge) {
 						badge.textContent = "";
 					}
@@ -45,25 +48,28 @@
 				if (badge) {
 					badge.textContent = String(rank);
 					if (rank <= 3) {
-						badge.classList.add("kcc-comparison__rank--" + rank);
+						badge.classList.add("kcc-card__rank--" + rank);
 					}
 				}
-				row.classList.toggle("kcc-comparison__row--top", rank <= 3);
+				card.classList.toggle("kcc-card--top", rank <= 3);
 			});
+			if (emptyMsg) {
+				emptyMsg.hidden = rank !== 0;
+			}
 		}
 
 		function applySort() {
 			var key = sortSelect.value;
 			var asc = ascKeys.indexOf(key) !== -1;
-			var sorted = allRows.slice().sort(function (a, b) {
+			var sorted = allCards.slice().sort(function (a, b) {
 				var av = numberAttr(a, key);
 				var bv = numberAttr(b, key);
 				return asc ? av - bv : bv - av;
 			});
-			sorted.forEach(function (row) {
-				tbody.appendChild(row);
+			sorted.forEach(function (card) {
+				grid.appendChild(card);
 			});
-			allRows = sorted;
+			allCards = sorted;
 			recalcRanks();
 		}
 
@@ -71,12 +77,12 @@
 			var active = filters.filter(function (cb) {
 				return cb.checked;
 			});
-			allRows.forEach(function (row) {
+			allCards.forEach(function (card) {
 				var visible = active.every(function (cb) {
 					var key = cb.getAttribute("data-kcc-filter");
-					return row.getAttribute("data-" + key) === "1";
+					return card.getAttribute("data-" + key) === "1";
 				});
-				row.classList.toggle("kcc-comparison__row--hidden", !visible);
+				card.classList.toggle("kcc-card--hidden", !visible);
 			});
 			recalcRanks();
 		}
@@ -84,7 +90,10 @@
 		sortSelect.addEventListener("change", applySort);
 		filters.forEach(function (cb) {
 			cb.addEventListener("change", function () {
-				cb.closest(".kcc-chip").classList.toggle("is-active", cb.checked);
+				var chip = cb.closest(".kcc-chip");
+				if (chip) {
+					chip.classList.toggle("is-active", cb.checked);
+				}
 				applyFilters();
 			});
 		});

@@ -493,6 +493,149 @@ a {
 }
 
 /* =========================================================
+   How-to (選び方) numbered list
+   ========================================================= */
+.kcc-howto {
+	list-style: none;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	display: grid;
+	gap: 0.9rem;
+}
+
+.kcc-howto__item {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	background: var(--kcc-surface, #f4f7fc);
+	border: 1px solid var(--kcc-line, #e3e8f1);
+	border-radius: 0.9rem;
+	padding: 1.1rem 1.2rem;
+}
+
+.kcc-howto__num {
+	flex: 0 0 auto;
+	display: inline-grid;
+	place-items: center;
+	width: 2.2rem;
+	height: 2.2rem;
+	border-radius: 0.6rem;
+	font-family: var(--wp--preset--font-family--display, sans-serif);
+	font-weight: 800;
+	font-size: 1.1rem;
+	color: #fff;
+	background: var(--kcc-grad-primary, #1a56db);
+}
+
+.kcc-howto__title {
+	margin: 0.1rem 0 0.3rem;
+	font-size: 1.05rem;
+	font-weight: 800;
+	line-height: 1.35;
+}
+
+.kcc-howto__item p {
+	margin: 0;
+	color: var(--kcc-ink, #0d1526);
+	line-height: 1.8;
+}
+
+/* =========================================================
+   Notes (注意点) cards
+   ========================================================= */
+.kcc-notes {
+	margin: 1.5rem 0 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1rem;
+}
+
+.kcc-note {
+	background: #fff;
+	border: 1px solid var(--kcc-line, #e3e8f1);
+	border-left: 4px solid var(--kcc-accent, #f59e0b);
+	border-radius: 0.8rem;
+	padding: 1.1rem 1.2rem;
+	box-shadow: 0 8px 24px -16px rgba(13, 21, 38, 0.2);
+}
+
+.kcc-note__title {
+	margin: 0 0 0.4rem;
+	font-size: 1.02rem;
+	font-weight: 800;
+	line-height: 1.4;
+}
+
+.kcc-note p {
+	margin: 0;
+	line-height: 1.8;
+	color: var(--kcc-muted, #56627a);
+	font-size: 0.95rem;
+}
+
+/* =========================================================
+   FAQ accordion
+   ========================================================= */
+.kcc-faq {
+	margin: 1.5rem 0 0;
+	display: grid;
+	gap: 0.6rem;
+}
+
+.kcc-faq__item {
+	border: 1px solid var(--kcc-line, #e3e8f1);
+	border-radius: 0.8rem;
+	background: #fff;
+	overflow: hidden;
+}
+
+.kcc-faq__q {
+	cursor: pointer;
+	list-style: none;
+	padding: 1rem 3rem 1rem 1.2rem;
+	font-weight: 700;
+	position: relative;
+	line-height: 1.5;
+}
+
+.kcc-faq__q::-webkit-details-marker {
+	display: none;
+}
+
+.kcc-faq__q::after {
+	content: "+";
+	position: absolute;
+	right: 1.2rem;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: var(--wp--preset--font-family--display, sans-serif);
+	font-size: 1.4rem;
+	font-weight: 400;
+	color: var(--kcc-primary, #1a56db);
+	transition: transform 0.2s var(--kcc-ease, ease);
+}
+
+.kcc-faq__item[open] .kcc-faq__q::after {
+	content: "−";
+}
+
+.kcc-faq__a {
+	padding: 0 1.2rem 1.1rem;
+}
+
+.kcc-faq__a p {
+	margin: 0;
+	line-height: 1.85;
+	color: var(--kcc-muted, #56627a);
+}
+
+@media (max-width: 600px) {
+	.kcc-howto__item {
+		padding: 0.9rem 1rem;
+	}
+}
+
+/* =========================================================
    Section headings (editorial)
    ========================================================= */
 main.wp-block-group > .wp-block-heading,

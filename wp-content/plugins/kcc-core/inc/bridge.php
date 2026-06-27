@@ -42,11 +42,15 @@ function kcc_get_bridge_destination( int $service_id ): string {
 }
 
 /**
- * service の内部ブリッジURL（/go/{slug}）。遷移先が無ければ空文字。
+ * CTA の遷移先URL。
+ * アフィリンク（affiliate_url）が未設定の間は公式URLへ直リンクし、ブリッジ
+ * （中間ページ）を挟まない。affiliate_url を設定すると自動で /go/{slug}
+ * ブリッジ（クリック計測・クローキング）経由に切り替わる。遷移先が無ければ空文字。
  */
 function kcc_get_bridge_url( int $service_id ): string {
-	if ( '' === kcc_get_bridge_destination( $service_id ) ) {
-		return '';
+	$affiliate_url = (string) get_field( 'affiliate_url', $service_id );
+	if ( '' === $affiliate_url ) {
+		return (string) get_field( 'official_url', $service_id );
 	}
 	$post = get_post( $service_id );
 	if ( ! $post ) {
